@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 
 // get all users
 router.get('/', (req, res) => {
-    
+    console.log('======================');
     Post.findAll({
         attributes: [
             'id',
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
         ],
       order: [['created_at', 'DESC']],
       include: [
-      
+        // Comment model here -- attached username to comment
         {
           model: Comment,
           attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
